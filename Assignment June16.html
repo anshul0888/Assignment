@@ -1,0 +1,262 @@
+<script>
+    //  1. Create Javascript function that reverses a string. E.g. “Hello world” => “dlrow olleH”
+    
+    var revString = function(a){
+    let t = a.split("").reverse().join("");
+        console.log(t);
+        return t;
+    };
+    
+    revString("Hello World");
+    
+    //  2. Use above function to create function that performs word wise reverse function. E.g. “Hello world” => “olleH dlrow”
+    var revWord = function(a){
+        let t = a.split(" ");
+        let k =[];
+        t.forEach(function(element){
+        k.push(revString(element));
+        });
+        k=k.join(" ");
+        console.log(k);
+    };
+    revWord("Hello World");
+    
+    //3. Create a function that capitalises each word of a sentence. E.g “javascRipt is a smart LanguAge. but it Requires too much effort.” => “JavascRipt Is //A Smart LanguAge. But It Requires Too Much Effort.”
+    
+    var capital = function(a){
+            let t = a.split(" ");
+            let result = t.map(function(element,index,array){
+            let k = element.split("");
+            let n = k.shift();
+            n = n.toUpperCase();
+            k.unshift(n);
+            k = k.join("");
+            return k;
+        });
+        let q = result.join(" ");
+        console.log("----------Output----------");
+        console.log(q);
+    };
+    capital("my name is anshul sharma.");
+    
+    //4. Try to run above function with some more efficiency, such that every word is capitalized and all remaining letters are converted to small case. E.g. //“Javascript Is A Smart Language. But It Requires Too Much Effort.”
+    var word = function(a){
+        let t = a.split(" ");
+        let result = t.map(function(element,index,array){
+            let k = element.split("");
+            let n = k.shift();
+            let p = k.map(function(element){
+               return element.toLowerCase();
+            });
+            n = n.toUpperCase();
+            p.unshift(n);
+            p = p.join("");
+            return p;
+        });
+        let q = result.join(" ");
+        console.log("----------Output----------");
+        console.log(q);
+    };
+    
+    word("javascRipt is a smart LanguAge. but it Requires too much effort.");
+    
+    /*5. Use below code as template 
+	var capital={
+		'delhi':'Delhi',
+		'uttar pradesh':'Lucknow',
+		'haryana':'Chandigarh',
+		'punjab':'Chandigarh',
+		'uttarakhand':'Dehradoon'
+	}
+
+	var cities=[
+		{city:'Agra',state:'Uttar Pradesh'},
+		{city:'Faridabad',state:'Haryana'},
+		{city:'West delhi',state:'Delhi'},
+		{city:'Amritsar',state:'Punjab'},
+		{city:'Nainital',state:'Uttarakhand'},
+	]
+
+	Now create a new array cityData from cities such that  every element contains object with city state and its capital. E.g {city:’Agra’, state:’Uttar Pradesh’, capital:’Lucknow’}
+    */
+    
+    var cityCapital = function(capital,cities) {
+        let result = cities.map(function(element){
+            let place = element.state.toLowerCase();
+            if(place in capital){
+                element.capital = capital[place];
+            }
+            return element;
+        });
+        console.log("----------Capital, City & State----------");
+        for(key in result)
+        console.log(result[key]);
+        
+    };
+    
+    var capital={
+		'delhi':'Delhi',
+		'uttar pradesh':'Lucknow',
+		'haryana':'Chandigarh',
+		'punjab':'Chandigarh',
+		'uttarakhand':'Dehradoon'
+	};
+
+	var cities=[
+		{city:'Agra',state:'Uttar Pradesh'},
+		{city:'Faridabad',state:'Haryana'},
+		{city:'West delhi',state:'Delhi'},
+		{city:'Amritsar',state:'Punjab'},
+		{city:'Nainital',state:'Uttarakhand'},
+	];
+    
+    cityCapital(capital,cities);
+    
+    //5. Create a function to convert a number into array of digits. 1234 => [1,2,3,4]. Make sure elements in array must be of type integer.
+
+    var digits = function(a){
+        let str = a.toString();
+        let result = str.split("");
+        result = result.map(function(element){
+            return parseInt(element);
+        });
+        console.log("----------Digits----------");
+        console.log(result);
+    };
+    
+    digits(1234);
+    
+    //6. Create a function that finds sum of all elements of array of digits. [1,2,3,4] => 10.
+    
+    var sum = function(a){
+        let result = a.reduce(function(counter,element){
+            return counter+element;
+        },0);
+        console.log("----------Sum----------");
+        console.log(result);
+    };
+    sum([1,2,3,4]);
+    
+    //7. Use above function to recursively add all elements of array until you get a single digit.
+    
+    var sumFun = function(f,a){
+        console.log("----------Sum using Recursive function call----------");
+        return f(a);
+    }
+    sumFun(sum,[1,2,3,4]);
+    
+    //8. Check whether a list of digits is palindrome or not . [1,2,3,2,1] => true.
+    var palindrome = function(a){
+        let rev = a.reverse();
+        let flag = 1;
+        for(let i = 0; i<a.length; i++){
+            if(a[i] != rev[i]){
+                flag = 0;
+            }
+        }
+        flag == 1 ? console.log("Palindrome") : console.log("Not a palindrome");
+    };
+    
+    palindrome([1,2,3,2,1]);
+    
+    //9. Use previous functions to check whether a string is palindrome or not.
+    var stringPalindrome = function(a){
+        let b = a.split("").reverse().join("");
+        if(a == b)
+            console.log("Palindrome");
+        else
+            console.log("Not a Palindrome");
+        
+    };
+    
+    stringPalindrome("asdfdsa");
+    
+    //10. Create a function that cleans(remove duplicates) an array of digits/strings.
+    var removeDigit= function(a){
+        for( let tey in a){
+            let index = a.findIndex(function(element,number){
+                                    return element == a[tey] && number>tey;
+                                    });
+            console.log("inininin: "+a);
+            if(index != -1)
+            a.splice(index,1);
+            console.log("aaaa "+a);
+        }
+        console.log("----------Output----------");
+        console.log(a);
+    };
+    
+    removeDigit([1,2,3,4,5,2,6,7,4]);
+    
+    //11. Create a function that cleans(remove duplicates) from an array of objects.
+    
+    var students=[
+		{name:'Abc',roll:3},
+		{name:'efg',roll:1},
+		{name:'pqr',roll:2},
+		{name:'rst',roll:1},
+		{name:'Xyz',roll:6},
+		{name:'mno',roll:2},
+        {name:'aaa',roll:1}
+	];
+    var removeDuplicate = function(a){
+        
+        for( let k1 in a){
+            let index = a.findIndex(function(element,number){
+                console.log("number::: "+element.roll+" "+a[k1].roll+" "+(element.roll==a[k1].roll)+" "+number+" "+k1+" "+(number>k1));
+                return element.roll==a[k1].roll && number>k1 || element.roll==a[k1].roll && number<k1;
+            });
+          
+            console.log("This is index:"+index);
+            if(index != -1)
+            students.splice(index,1);
+           
+        }
+        console.log(a);
+    };
+    removeDuplicate(students);
+
+    /*12. Create a function (sorter) which takes a string argument. This function can be passed into any sort function of array of objects. The string will decide the key on which the array should be sorted.
+E.g. students.sort(sorter(“name”)) -> Now sorter function must sort students with respect to name. Also make sure if the value in that key is a string array must be sorted without considering case.*/
+    
+        var sorter = function(a){
+        a = a.toLowerCase();
+        students.sort(function(obj1,obj2){
+            if(obj1[a] > obj2[a]){
+                return 1;
+            }
+            else if(obj1[a] < obj2[a])
+                return -1;
+            else
+                return 0;
+        });
+    };
+    console.log("12345677");
+    sorter("Roll");
+    console.log(students);
+    
+    //13. Work on previous function and make sure if we pass “-” sign before the key the array must get sorted in descending order.
+    
+    var newSorter = function(a){
+        if(a.startsWith("-")){
+            a = a.split("");
+            a.shift();
+            a = a.join("").toLowerCase();
+        students.sort(function(obj1,obj2){
+            if(obj1[a] < obj2[a]){
+                return 1;
+            }
+            else if(obj1[a] > obj2[a])
+                return -1;
+            else
+                return 0;
+        });
+        }
+        else
+            sorter(a);
+        console.log("Function New Sorter:");
+        console.log(students);
+    };
+    
+    newSorter(prompt());
+</script>

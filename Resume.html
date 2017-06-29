@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <title>Anshul Sharma</title>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <style>
+            body{
+                background-image: url(back1.jpg);
+                background-size: cover;
+                overflow-y: auto;
+            }
+            #photo{
+                width: 350px;
+                height: 300px;
+                background-image: url(user.jpg);
+                
+                background-size: cover;
+                position: relative;
+                margin-top: 12px;
+            }
+            #pname{
+                font-family: 'Helvetica Neue', sans-serif;
+                font-size: 35px;
+                font-weight: 500;
+                color:rgba(255,255,255,1);
+                margin-left: 25px;
+                position: absolute;
+                top: 250px;
+                max-width: 350px;
+            }
+            #details{
+                padding: 8px;
+                font-family: 'Helvetica Neue', sans-serif;
+                color:rgba(255,255,255,1);
+                font-size: 17px;
+                max-width: 350px;
+            }
+            .part1{
+                margin-top: 12px;
+                background-color: rgba(249,249,249,0.2);
+                padding: 10px 50px;
+                font-family: 'Helvetica Neue', sans-serif;
+                font-size: 17px;
+                color:rgba(55,55,55,0.8);
+                max-width: 1100px;
+            }
+            button[type=submit]{
+                background-color: rgba(92,184,92,0.6) !important; 
+                color: rgba(249,249,249,0.9);
+            }
+            button[type=reset]{
+                background-color: rgba(240,173,78,0.6) !important;
+                color: rgba(249,249,249,0.9);
+            }
+            .column1back{
+                background-color: rgba(249,249,249,0.1) !important;
+            }
+            input{
+                background-color: rgba(249,249,249,0.5) !important;
+                color:rgba(55,55,55,0.8) !important;
+            }
+            textarea{
+                resize: none;
+                background-color: rgba(249,249,249,0.5) !important;
+                color:rgba(55,55,55,0.8) !important;
+            }
+            label{
+                color:rgba(55,55,55,0.6) !important;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="container">
+            <form>
+                <div class="row">
+                    <div id="column1" class="col-md-4">
+                        <div id="photo">
+                            <div id="pname" class="form-group"><input class="form-control" type="text" placeholder="Name"></div>
+                        </div>
+
+                        <div id="details" class="column1back form-group">
+                            <textarea name="profile" class="form-control" placeholder="Profile" rows="4"></textarea>
+                            <hr>
+                            <label class="radio-inline">
+                                <input name="gender" type="radio" required>Male
+                            </label>
+                            <label class="radio-inline">
+                                <input name="gender" type="radio" required>Female
+                            </label>
+                            <hr>
+                            <input name="mobilehome" class="form-control" placeholder="Mobile (Home)" type="text" maxlength="10">
+                            <br>
+                            <input name="mobilework" class="form-control" placeholder="Mobile (Work)" type="text" maxlength="10">
+                            <hr>
+                            <input name="email" class="form-control" placeholder="e-mail" type="email">
+                            <hr>
+                            <textarea name="address" class="form-control" placeholder="Address" rows="4"></textarea>
+                            <hr>
+                            <textarea name="skills" class="form-control" placeholder="Professional Skills" rows="4"></textarea>
+                        </div>
+                    </div>    
+                    <div class="col-md-8">
+                        <div class="part1 form-group">
+                            <h3>Work Experiences</h3>
+                            <input name="workOrganization1" class="form-control" placeholder="Organization" type="text"><br>
+                            <p><input name="sDateWE1" class="form-control" placeholder="MM-YYYY" style="width: 45%; display:inline-block"> - <input name="eDateWE1" class="form-control" placeholder="MM-YYYY" style="width: 45%; display:inline-block;"></p>
+                            <textarea name="descriptionWE1" class="form-control" placeholder="Description" rows="4"></textarea>
+                            <hr>
+                            <input name="workOrganization2" class="form-control" placeholder="Organization" type="text"><br>
+                            <p><input name="sdate2" class="form-control" placeholder="MM-YYYY" style="width: 45%; display:inline-block"> - <input name="sdate2" class="form-control" placeholder="MM-YYYY" style="width: 45%; display:inline-block;"></p>
+                            <textarea name="descriptionWE2" class="form-control" placeholder="Description" rows="4"></textarea>
+                        </div>
+                        <div class="part1">
+                            <h3>Education</h3>
+                            <input name="eduUniversity1" class="form-control" placeholder="University/Institution" type="text"><br>
+                            <p><input name="sDateE1" class="form-control" placeholder="MM-YYYY" style="width: 45%; display:inline-block"> - <input name="eDateE1" class="form-control" placeholder="MM-YYYY" style="width: 45%; display:inline-block;"></p>
+                            <textarea name="descriptionE1" class="form-control" placeholder="Description" rows="4"></textarea>
+                            <hr>
+                            <input name="eduUniversity2" class="form-control" placeholder="University/Institution" type="text"><br>
+                            <p><input name="sDateE2" class="form-control" placeholder="MM-YYYY" style="width: 45%; display:inline-block"> - <input name="eDateE2" class="form-control" placeholder="MM-YYYY" style="width: 45%; display:inline-block;"></p>
+                            <textarea name="descriptionE2" class="form-control" placeholder="Description" rows="4"></textarea>
+                        </div>
+                        <div class="part1">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-block">Submit</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="reset" class="btn btn-block">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </form>
+        </section>
+    </body>
+</html>
