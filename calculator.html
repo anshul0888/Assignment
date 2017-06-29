@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body{
+                font-family: "Helvetica Nune", sans-serif;
+                background-image: url(back2.jpg);
+                background-size: cover;
+            }
+            #calc{
+                background-color: rgba(255,255,255,0.5) !important;
+                width: 70%;
+                height: 100%;
+                margin-top: 15%;
+                border-radius: 20px;
+                box-shadow: 30px 30px 20px rgba(155,155,155,0.7);
+            }
+            #head{
+                font-size: 40px;
+                color: rgba(155,155,155,0.5);
+            }
+        </style>
+    </head>
+    <body>
+        <section class="container">
+            <div id="calc" class="container">
+                <br>
+                <div class="row container-fluid form-group">
+                        <input id="ip1" name="input1" class="form-control text-right" type="text">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6"><button class="btn btn-block btn-warning" onclick="btn1()">C</button></div>
+                    <div class="col-md-3"><button class="btn btn-block btn-default" onclick="btn2()">%</button></div>
+                    <div class="col-md-3"><button class="btn btn-block btn-warning" onclick="btn3()">&divide;</button></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-3"><button class="btn btn-block btn-default" onclick="btn4()">7</button></div>
+                    <div class="col-md-3"><button class="btn btn-block btn-default" onclick="btn5()">8</button></div>
+                    <div class="col-md-3"><button class="btn btn-block btn-default" onclick="btn6()">9</button></div>
+                    <div class="col-md-3"><button class="btn btn-block btn-warning" onclick="btn7()">&times;</button></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-3"><button class="btn btn-block btn-default" onclick="btn8()">4</button></div>
+                    <div class="col-md-3"><button class="btn btn-block btn-default" onclick="btn9()">5</button></div>
+                    <div class="col-md-3"><button class="btn btn-block btn-default" onclick="btn10()">6</button></div>
+                    <div class="col-md-3"><button class="btn btn-block btn-warning" onclick="btn11()">-</button></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-3"><button class="btn btn-block btn-default" onclick="btn12()">1</button></div>
+                    <div class="col-md-3"><button class="btn btn-block btn-default" onclick="btn13()">2</button></div>
+                    <div class="col-md-3"><button class="btn btn-block btn-default" onclick="btn14()">3</button></div>
+                    <div class="col-md-3"><button class="btn btn-block btn-warning" onclick="btn15()">+</button></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6"><button class="btn btn-block btn-default" onclick="btn16()">0</button></div>
+                    <div class="col-md-3"><button class="btn btn-block btn-default" onclick="btn17()">.</button></div>
+                    <div class="col-md-3"><button class="btn btn-block btn-warning" onclick="btn18()">=</button></div>
+                </div>
+                <br>
+            </div>
+        </section>
+        <script>
+            var p = 0;
+            var q;
+            var r;
+            var s;
+            var a = document.querySelector("#ip1");
+            a.select();
+            var btn1 = function(){
+                a.value="";
+                a.select();
+            };
+            var btn18 = function(){
+                a.value = eval(a.value);
+            };
+            var btn15 = function(){
+                a.value = a.value + "+";
+                
+            };
+            var btn11 = function(){
+                a.value = a.value + "-";
+            };
+            var btn7 = function(){
+               a.value = a.value + "*";
+            };
+            var btn3 = function(){
+                a.value = a.value + "/";
+            };
+            var btn2 = function(){
+                a.value = a.value + "%";
+            };
+            
+            var btn4 = function(){a.value = a.value + "7";};
+            var btn5 = function(){a.value = a.value + "8";};
+            var btn6 = function(){a.value = a.value + "9";};
+            var btn8 = function(){a.value = a.value + "4";};
+            var btn9 = function(){a.value = a.value + "5";};
+            var btn10 = function(){a.value = a.value + "6";};
+            var btn12 = function(){a.value = a.value + "1";};
+            var btn13 = function(){a.value = a.value + "2";};
+            var btn14 = function(){a.value = a.value + "3";};
+            var btn16 = function(){a.value = a.value + "0";};
+            var btn17 = function(){a.value = a.value + ".";};
+        </script>
+    </body>
+</html>
