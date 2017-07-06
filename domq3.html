@@ -1,0 +1,50 @@
+<!doctype html>
+<!--Create a small application where a user will enter vegetable name, weight and type. The application will calculate the price of that vegetable based on these parameters. You have to set price of each vegetable per kg.-->
+<html ng-app="myVegetable">
+    <head>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    </head>
+    <body>
+        <br>
+        <div class="container">
+            <h1 class="text-center">Buy me!!!</h1><br>
+            <div ng-controller="myCtrl">
+                <form class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <select class="form-control" ng-model="calprice">
+                                <option value="" selected>Select item from list.</option>
+                                <option ng-repeat="item in list" value="{{item.cost}}">{{item.name}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            Price /Kg: Rs.{{calprice}}.
+                        </div>
+                        <div class="col-md-4">
+                            <input id="quantity" class="form-control" type="number" ng-model="weight" placeholder="Quantity (in Kg)">
+                        </div>
+                        <div class="col-md-2">
+                            Total: Rs. <span ng-if="calprice && weight">{{calprice * weight}}</span>.
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <script src="angular.min.js"></script>
+        <script>
+            var app = angular.module("myVegetable",[]);
+            app.controller('myCtrl',function($scope){
+                
+                $scope.list=[
+                    {'name':'Onion','cost':'30'},
+                    {'name':'Tomato','cost':'10'},
+                    {'name':'Cucumber','cost':'70'},
+                    {'name':'Carrot','cost':'30'},
+                    {'name':'Apple','cost':'150'},
+                    {'name':'Reddish','cost':'60'}
+                ];
+            });
+        </script>
+    </body>
+</html>

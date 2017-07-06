@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+    <head>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"> <!-- BootStrap Link -->
+        <style>
+            body{
+                background-image: url(back1.jpg);
+                background-size: cover;
+                font-family: "Helvetica Neue", sans-serif;
+                color: rgba(92,101,116,1);
+            }
+            #box{
+                margin-left: 295px;
+            }
+            #inp{
+                background-color: rgba(240,240,240,0.3) !important; 
+                height: 50px !important;
+                width: 450px !important;
+                font-size: 25px !important; 
+            }
+            #add{
+                height: 50px !important;
+                width: 70px !important;
+            }
+            #can{
+                margin-top: 5px;
+                background-color: rgba(240,240,240,0.5);
+                width: 525px;
+                box-shadow: 5px 5px 10px rgba(155,155,155,0.5);
+                border-radius: 5px;
+                font-size: 15px;
+                height: 400px;
+                overflow-y:scroll;
+                padding: 8px;
+            }
+            .scrl{
+                overflow-x: scroll;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="container" ng-controller="myctrl">
+            <h1 class="text-center">TO-DO-LIST</h1>
+            <br>
+            <div id="list" class="container-fluid">
+                <div id="box" class="form-group form-inline">
+                    <input id="inp" name="task" ng-model="data.ts" class="form-control" type="text">
+                    <button id="add" class="btn btn-success" ng-disabled="data.ts==''" type="button" ng-click="addTask()">ADD</button>
+                </div>
+                <div id="can" class="container-fluid">
+                    <div class="row" ng-repeat="t in task">
+                        <div class="col-md-1"><input type="checkbox" ng-model="check"></div>
+                        <div class="col-md-9" ><del ng-if="check">{{t.ts}}</del><span ng-if="!check">{{t.ts}}</span></div>
+                        <div class="col-md-2"><button class="btn btn-danger btn-block" ng-click="delete($index)">X</button></div>
+                    </div>
+                </div>
+            </div>
+         </section>
+        <script src="angular.min.js"></script>
+        <script>
+            var app = angular.module("myapp",[]);
+            
+            app.controller("myctrl",function($scope){
+                $scope.task = [];
+                $scope.addTask = function(){
+                    $scope.task.push($scope.data);
+                    $scope.data={};
+                };
+                $scope.delete = function(index){
+                    $scope.task.splice(index,1);
+                }
+            });
+        </script>
+    </body>
+</html>

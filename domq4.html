@@ -1,0 +1,231 @@
+<!-- Create a login and registration form where a user first register with some details like name, email, dob, gender, address etc.you have to save this data. And while login you have to check whether the user is registered or not. If user already exists show a welcome alert with the name. Otherwise throw a message for registration-->
+<!doctype html>
+<html ng-app="Register">
+    <head>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <style>
+            body{
+                background-image: url(back.jpg);
+                background-size: cover;
+                font-family: 'Helvetica Neue' ,sans-serif;
+            }
+            #reg{
+                background-image: url(mac1.png);
+                background-size: cover;
+                height: 1000px;
+                position: relative;
+            }
+            input{
+                background-color: rgba(240,240,240,0.4) !important;
+            }
+            .frame{
+                position: absolute;
+                top: 100px;
+                left: 120px;
+                font-size: 16px;
+                color: rgba(0,0,0,0.6)
+            }
+            #parent{
+                position: relative;
+            }
+            .main1{
+                font-size: 60px;
+                position: absolute;
+                top:70px;
+                left:50px;
+                font-style: italic;
+            }
+            .main1>button{
+                font-size: 40px;
+                width: 180px;
+                position: absolute;
+                left: 500px;
+                background-color: rgba(0,0,0,0.0) !important;
+                border: 2px solid rgba(0,0,0,0.5);
+            }
+            .main1>button.btn:hover{
+                background-color: rgba(0,0,0,0.3) !important;
+                color: rgba(245,245,245,0.3);
+                box-shadow: 0px 0px 15px rgba(0,0,0,0.6);
+            }
+            .main2{
+                font-size: 60px;
+                font-style: italic;
+                position: absolute;
+                top: 300px;
+                left: 350px;
+            }
+            .main2>button{
+                font-size: 40px;
+                width: 180px;
+                position: absolute;
+                left: 410px;
+                background-color: rgba(0,0,0,0.0) !important;
+                border: 2px solid rgba(0,0,0,0.5);
+            }
+            .main2>button.btn:hover{
+                background-color: rgba(0,0,0,0.3) !important;
+                color: rgba(245,245,245,0.3);
+                box-shadow: 0px 0px 15px rgba(0,0,0,0.6);
+            }
+            .message{
+                position: absolute;
+                top: 250px;
+                left: 450px;
+                width: 250px;
+                height: 140px;
+                background-color: rgba(0,0,0,0.2) !important;
+                border-radius: 5px;
+                font-style: italic;
+            }
+            .message2{
+                position: absolute;
+                top: 250px;
+                left: 250px;
+                width: 750px;
+                height: 140px;
+                background-color: rgba(0,0,0,0.2) !important;
+                border-radius: 5px;
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div id="reg" ng-controller="register">
+<!--                Register Frame -->
+                <div class="container frame"  ng-show="signup==1"> 
+                    <h1 class="text-center"><i>let us know you!</i></h1>
+                    <hr>
+                    <br>
+                    <form class="form-group" ng-submit="submitForm()">
+                        <div class="row">
+                            <div class="col-md-6"><label for="name">What's your name?</label><input id="name" class="form-control" type="text" placeholder="Full Name" ng-model="user.name"></div>
+                            <div class="col-md-6"><label for="username">What's about username?</label><input id="username" class="form-control" type="text" placeholder="Username" ng-model="user.username"></div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6"><label for="phone">How should we contact you?</label><input id="phone" class="form-control" type="text" placeholder="(999XX-XXXXX)" ng-model="user.contact"></div>
+                            <div class="col-md-6"><label for="email">Your e-mail might be ..</label><input id="email" class="form-control" type="text" placeholder="E-mail" ng-model="user.mail"></div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="pass">Guess your Passcode</label><input id="pass" class="form-control" type="password" placeholder="Passcode" ng-model="user.password">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="pass">Guess your Passcode</label><input id="pass" class="form-control" type="password" placeholder="Passcode" ng-model="passcode">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6"><br><label for="gender">Gender: &nbsp;&nbsp;&nbsp;&nbsp; <input id="gender" name="Gender" type="radio" value="Male" ng-model="user.gender"> Male &nbsp;&nbsp;&nbsp;&nbsp; <input id="gender" name="Gender" type="radio" value="Female" ng-model="user.gender"> Female</label></div>
+                            <div class="col-md-6"><label for="birth">When were you born?</label><input id="birth" class="form-control" type="text" placeholder="D.O.B. (DD/MM/YYYY)" ng-model="user.born"></div>
+                        </div>
+                        <br>
+                        <div class="row container-fluid">
+                            <label for="add">Where do you live?</label><input id="add" class="form-control" type="text" placeholder="Address" ng-model="user.address">
+                        </div>
+                        <br>
+                        <hr>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-2 col-md-offset-1"><button class="btn btn-success btn-block" type="submit" ng-disabled="(user.password!=passcode)">Submit</button></div>
+                            <div class="col-md-2 col-md-offset-2"><button class="btn btn-warning btn-block" type="reset" ng-click="reset()">Reset</button></div>
+                            <div class="col-md-2 col-md-offset-2"><button class="btn btn-danger btn-block" type="button" ng-click="hideSignup()">Cancel</button></div>
+                        </div>
+                    </form>
+                </div>
+<!--                Register Frame Ends -->
+<!--                Home page starts-->
+                <div class="container frame" ng-if="login==1">
+                    <div id="parent">
+                        <div class="main1">
+                            <p>knock and come-in</p>
+                            <button class="btn" ng-click="mainLogin()"><i>Login</i></button>
+                        </div>
+                        <div class="main2">
+                            <p>let us know you</p>
+                            <button class="btn" ng-click="hideLogin()"><i>Sign Up</i></button>
+                        </div>
+                    </div>
+                </div>
+<!--                Home page ends-->
+<!--                Login Page-->
+                <div class="container frame" ng-if="loginPage == 1">
+                    <div class="row container-fluid">
+                        <label for="loginId">What's your e-mail?</label><input id="loginId" class="form-control" type="text" placeholder="E-mail" ng-model="log.id">
+                    </div>
+                    <br>
+                    <div class="row container-fluid">
+                        <label for="loginPass">Your Passcode.</label><input id="loginPass" class="form-control" type="password" placeholder="Passcode" ng-model="log.pass">
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6"><button class="btn btn-success btn-block" ng-click="checkLog()">LogIn</button></div>
+                        <div class="col-md-6"><button class="btn btn-danger btn-block" ng-click="hideSignup()">Cancel</button></div>
+                    </div>
+                </div>
+<!--                Login Page ends-->
+<!--                Message 1-->
+                <div class="frame container" ng-show="logMessage==1">
+                    <div class="message">
+                        <h1 class="text-center">Welcome!</h1><br>
+                        <div class="row"><div class="col-md-8 col-md-offset-2"><button class="btn btn-sm btn-block btn-info" ng-click="logMessage=0">OK</button></div></div> 
+                    </div>
+                </div>
+<!--                Message 2-->
+                <div class="frame container" ng-show="logMessage1==1">
+                    <div class="message2">
+                        <h1 class="text-center">We would like you to SignUp first. Soory!</h1><br>
+                        <div class="row"><div class="col-md-4 col-md-offset-4"><button class="btn btn-sm btn-block btn-info" ng-click="logMessage1=0">OK</button></div></div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="angular.min.js"></script>
+        <script>
+            var app = angular.module("Register",[]);
+            
+            app.controller('register',function($scope){
+                $scope.data = [];
+                $scope.logMessage = 0;
+                $scope.logMessage1 = 0;
+                $scope.user = {};
+                $scope.log = {};
+                $scope.signup = 0;
+                $scope.login = 1;
+                $scope.loginPage = 0;
+                $scope.submitForm = function(){
+                    $scope.data.push($scope.user);
+                    $scope.user = {};
+                };
+                $scope.reset = function(){
+                    $scope.user = null;
+                };
+                $scope.hideLogin = function(){
+                    $scope.login = 0;
+                    $scope.loginPage = 0;
+                    $scope.signup = 1;
+                    
+                };
+                $scope.hideSignup = function(){
+                    $scope.signup = 0;
+                    $scope.login = 1;
+                    $scope.loginPage = 0;
+                };
+                $scope.mainLogin = function(){
+                    $scope.signup = 0;
+                    $scope.login = 0;
+                    $scope.loginPage = 1;
+                }
+                $scope.checkLog = function(){
+                    $scope.data.forEach(function(element){
+                        if(element.mail==$scope.log.id && element.password==$scope.log.pass) {$scope.logMessage=1;$scope.logMessage1=0;}
+                        else{$scope.logMessage=0;$scope.logMessage1=1;}
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>

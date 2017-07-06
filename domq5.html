@@ -1,0 +1,100 @@
+<!--Create a registration form in which you have to enter certain details about employee.and after that assign an employee id to each employee.(you don’t have to assign employee id at the time of registration) Atlast render all the employee details in a table along with their corresponding employee ids .-->
+<!doctype html>
+<html ng-app="myapp">
+    <head>
+        <title>Question 5</title>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <style>
+            .error{
+                color: rgba(255,0,0,0.6);
+                font-size: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <br>
+        <div class="container" ng-controller="register">
+            <div class="row">
+                <form class="form-group" name="registerForm" ng-submit="registerForm.$valid && submit()" novalidate>
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="row">
+                            <label for="name">Name</label><input id="name" name="fullname" class="form-control" placeholder="Full Name" ng-model="e.name" pattern="^[a-zA-Z]+$" required>
+                            <span ng-messages="registerForm.fullname.$error" ng-show="registerForm.fullname.$touched || registerForm.$submitted" class="error">
+                                <span ng-message="required">You can't leave this empty.</span>
+                                <span ng-message="pattern">Please use only letters [a-z].</span>
+                            </span>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <label for="email">E-mail</label><input id="email" name="mail" class="form-control" placeholder="e-mail" ng-model="e.email" pattern="^[a-zA-Z_.0-9]+[@][a-zA-z_.]+$" required>
+                            <span class="error" ng-messages="registerForm.mail.$error" ng-show="registerForm.mail.$touched || registerForm.$submitted">
+                                <span ng-message="required">You can't leave this empty.</span>
+                                <span ng-message="pattern">Please use only letters [a-z], numbers and period.</span>
+                            </span>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <label for="phone">Phone</label><input id="phone" name="phone" class="form-control" placeholder="Phone" ng-model="e.phone" type="text" maxlength="10" minlength="10" pattern="^[789][0-9]{9}$" required>
+                            <span ng-show="registerForm.phone.$touched || registerForm.$submitted" ng-messages="registerForm.phone.$error" class="error">
+                                <span ng-message="required">You can't leave this empty.</span>
+                                <span ng-message="pattern">This phone number format is not recogonized. Please check the number</span>
+                            </span>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3"><button class="btn btn-success btn-block">Submit</button></div>
+                        </div>
+                    </div>
+                </form>  
+            </div>
+            <br>
+            <div class="row">
+                <table class="table table-striped">
+                    <thead>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>E-MAIL</th>
+                        <th>PHONE</th>
+                        <th>DELETE</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in data">
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.phone}}</td>
+                            <td><button class="btn btn-danger" ng-click="remove($index)">Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script src="angular.min.js"></script>
+        <script src="angular-messages.min.js"></script>
+        <script>
+            var app = angular.module('myapp',['ngMessages']);
+            
+            app.controller('register',function($scope){
+                $scope.empid = 58101;
+                $scope.emp = {};
+                $scope.data = [];
+                $scope.submit = function(){
+                    $scope.emp = {
+                        id : $scope.empid,
+                        name : $scope.e.name,
+                        email : $scope.e.email,
+                        phone : $scope.e.phone
+                    };
+                    $scope.data.push($scope.emp);
+                    $scope.emp = {};
+                    $scope.e = {};
+                    $scope.empid += 1;
+                    console.log($scope.emp);
+                };
+                $scope.remove = function(index){
+                    $scope.data.splice(index,1);
+                }
+            });
+        </script>
+    </body>
+</html>
