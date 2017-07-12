@@ -1,0 +1,151 @@
+#main{
+    margin-top: 0px;
+    font-family: "HelveticaNeue", sans-serif;
+    font-size: 20px;
+    background-color: rgba(239,239,238,1);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+/*parent div*/
+#parent{    
+    height: 800px;
+    position: relative;
+}
+/*login div*/
+#logIn{
+    background-color: rgba(66,133,244,1);
+    box-shadow: 0px 0px 5px rgba(23,104,156,0.7);
+    position: absolute;
+    display: inline-block;
+    height: 500px;
+    width: 400px;
+    top: 90px;
+    left: 300px;
+    z-index: 100;
+    border-radius: 5px;
+    border: 1px solid rgba(23,104,156,0.1);
+}
+/*signup div*/
+#signUp{
+    background-color: rgba(255,255,255,1);
+    box-shadow: 0px 0px 5px rgba(255,255,255,0.4);
+    position: absolute;
+    display: inline-block;
+    height: 700px;
+    width: 500px;
+    top: 0px;
+    left: 600px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+/*sign up form div*/
+#signUpDiv{
+    margin-top: 160px;
+}
+input {
+    font-size: 16px !important;
+    border: 1px solid rgba(155,155,155,1) !important;
+    border-radius: 15px !important;
+    color: rgba(155,155,155,1) !important;
+}
+input:hover{
+    box-shadow: 0px 0px 5px rgba(155,155,155,1) !important;
+}
+/*signup div for text*/
+#signUp1{
+    position: absolute;
+    height: 100%;
+    width: 400px;
+    left: 100px;
+}
+/*login input tags*/
+.login-input{
+    position: absolute;
+    width: 96%;
+    margin: 0% 2%;
+    background-color: rgba(242,242,242,0.1);
+    border: 1px solid rgba(255,255,255,1)!important;
+    font-size: 20px;
+    color: rgba(255,255,255,1)!important;
+    }
+
+/*login input username*/
+#loginUsername{
+    top: 250px;
+}
+/*login input password*/
+#loginPassword{
+    top: 300px;
+}
+/*login input button*/
+#login-btn{
+    position: absolute;
+    top: 350px;
+    left: 145px;
+    width: 100px;
+    border: 1px solid rgba(255,255,255,1);
+    border-radius: 18px;
+    background-color: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,1);
+    font-size: 18px;
+    font-weight: 100;
+}
+.login-form input:hover{
+    box-shadow: 0px 0px 5px rgba(255,255,255,1) !important;
+}
+/*login form placeholder*/
+.login-form input.form-control::-webkit-input-placeholder { color: white !important; }
+.login-form input.form-control:-moz-placeholder { color: white; }  /* Mozilla Firefox 4 to 18 */
+.login-form input.form-control::-moz-placeholder { color: white; }  /* Mozilla Firefox 19+ */
+.login-form input.form-control:-ms-input-placeholder { color: white; }  /* Internet Explorer 10-11 */
+.login-form input.form-control::-ms-input-placeholder { color: white; }  /* Microsoft Edge */
+/*placeholder color*/
+.form-control::-webkit-input-placeholder { color: rgba(155,155,155,1); }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: rgba(155,155,155,1); }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: rgba(155,155,155,1); }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: rgba(155,155,155,1); }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: rgba(155,155,155,1); }  /* Microsoft Edge */
+/*login book logo*/
+.book-size{
+    position: absolute;
+    font-size: 65px;
+    top: 100px;
+    left: 170px;
+    color: rgba(255,255,255,1);
+}
+/*login logo text*/
+.login-text{
+    font-size: 50px;
+    position: absolute;
+    left:145px;
+    top: 170px;
+    color: rgba(255,255,255,1);
+    text-shadow: 1px 1px rgba(255,255,255,0.3);
+}
+/*sign up logo*/
+.signup-logo-text{
+    font-size: 50px;
+    position: absolute;
+    top: 50px;
+    left: 90px;
+    color: rgba(66,133,244,1);
+    text-shadow: 1px 1px rgba(66,133,244,0.3);
+}
+/*sign up button*/
+#signup-btn{
+    margin-left: 100px;
+    font-size: 18px;
+    font-weight: 100;
+    border: 1px solid rgba(155,155,155,1);
+    border-radius: 18px;
+    color: rgba(155,155,155,1);
+}
+/*loginSignupBackButton*/
+.loginSignup-back-btn{
+    font-size: 15px;
+    color: rgba(155,155,155,1);
+    font-weight: 100;
+	border-radius: 15px;
+}

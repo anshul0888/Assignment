@@ -1,0 +1,87 @@
+<!doctype html>
+<html ng-app="SimpleAuth">
+    <head>
+        <title>LogIn/SignUp</title>
+        <link rel="stylesheet" href="css/bootstrap-3.3.7/dist/css/bootstrap.min.css"> <!-- BootStrap 3.3.7 -->
+        <link rel="stylesheet" href="css/fontawesome/css/font-awesome.min.css"> <!-- FontAwesome -->
+<!--		Local Css -->
+        <link rel="stylesheet" href="css/loginSignup.css"> <!-- Css for loginSignup page -->
+		<link rel="stylesheet" href="css/index.css"> <!-- Css for Index page -->
+		<link rel="stylesheet" href="css/profile.css"> <!-- Css for Profile page -->
+    </head>
+    <body>
+    <!-- Navigation Bar -->
+            <div>
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-  collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">Simple Auth</a>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#!/loginSignup" ng-click="loginSignupShow();">Check In<span class="sr-only">(current)</span></a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+            <!-- Navigation Bar Ends-->
+        <section>
+<!--			Left Navigation Bar-->
+			<div id="left-bar" class="container-fluid">
+				<br>
+				<ul class="list">
+					<li class="list-li"><a href="#!/profile">
+						<button class="btn btn-block"><i class="fa fa-smile-o" aria-hidden="true"></i>&nbsp;Profile</button></a>
+					</li>
+					<li class="list-li"><a><button class="btn btn-block">Link 2</button></a></li>
+					<li class="list-li"><a><button class="btn btn-block">Link 3</button></a></li>
+					<li class="list-li"><a><button class="btn btn-block">Link 4</button></a></li>
+				</ul>
+			</div>
+<!--			Left Navigation Bar ends-->
+<!--			Routing View-->
+            <div id="main-view" ng-view></div>
+<!--			Routing View Ends-->
+        </section>
+        <script src="js/angular-1.6.2/angular.min.js"></script> <!-- Angular Js Script -->
+        <script src="js/angular-1.6.2/angular-route.min.js"></script>
+        <script>
+            var app = angular.module("SimpleAuth",['ngRoute']);
+            app.config(function($routeProvider){
+                $routeProvider.when('/loginSignup',{
+                    templateUrl : 'views/loginSignup.html',
+                    controller : 'LoginSignupController'
+                });
+				$routeProvider.when('/index',{
+                    templateUrl : 'views/blank.html',
+                });
+				$routeProvider.when('/profile',{
+                    templateUrl : 'views/profile.html',
+                });
+				$routeProvider.otherwise({
+					redirectTo: "/index"
+				});
+            });
+			app.run(function($location){
+				$location.path('/loginSignup');
+			});
+            //LoginSignup View Controller
+            app.controller('LoginSignupController',function($scope,$rootScope,$location){
+                $rootScope.checkIn = 0;
+                $scope.loginSignupBack = function(){
+                    $location.path('/index');
+                };
+            });
+        </script>
+    </body>
+</html>

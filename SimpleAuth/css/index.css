@@ -1,0 +1,75 @@
+body{
+	background-color: rgba(241,241,241,1);
+	font-family: 'Helvetica Neue', sans-serif;
+}
+/*Left Nav bar*/
+#left-bar{
+	display: inline-block;
+	background-color: rgba(241,241,241,1);
+	height: 93%;
+	position: absolute;
+	top: 53px;
+	left: 0px;
+	width: 15%;
+	padding: 0px;
+}
+/*Main Routing view*/
+#main-view{
+	background-color: rgba(241,241,241,1);
+	display: inline-block;
+	position: absolute;
+	left: 15%;
+	top: 53px;
+	height: 93%;
+	width: 84%;
+	overflow-y: auto;
+}
+/*Navigation bar height*/
+.navbar-nav > li > a, .navbar-brand {
+    padding-top:15px !important; 
+    padding-bottom:0 !important;
+    height: 50px;
+	color: rgba(255,2552,255,1) !important;
+}
+.navbar{
+	min-height: 50px !important;
+	background-color: rgba(176,46,133,1) !important;
+	color: rgba(255,2552,255,1) !important;
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.1) !important;
+}
+/*Blank page view*/
+#blank{
+	height: 100%;
+	width: 100%;
+}
+/*left nav bar list */
+.list{
+	list-style-type: none;
+	padding: 0px 10px;
+	text-align: center;
+	
+}
+.list-li{
+	margin-top: 0px;
+	font-size: 16px;
+}
+.list li{
+	display: block;
+	margin: 0px;
+	border-bottom: 1px solid rgba(221,221,221,1);
+}
+.list li a{
+	text-decoration: none;
+	color: rgba(0,0,0,1);
+}
+.list li a button{
+	color: rgba(0,0,0,1)!important;
+	background-color: rgba(0,0,0,0)!important;
+	border: 0px;
+	border-radius: 20px;
+}
+.list li button:hover{
+	background-color: rgba(66,133,244,1)!important;
+	color: rgba(255,255,255,1)!important;
+	border-radius: 20px;
+}

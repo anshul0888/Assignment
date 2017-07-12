@@ -1,0 +1,68 @@
+<div id="main" class="container-fluid" ng-if="checkIn == 0 ">
+	<br>
+    <div class="text-right"><button  class="btn btn-md btn-default loginSignup-back-btn" type="button" ng-click="loginSignupBack();"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;close</button></div>
+<!--                Parent Div-->
+                <div id="parent">
+<!--                    Login Div-->
+                    <div id="logIn" class="container">
+                        <div class="row">
+                            <i class="fa fa-book book-size" aria-hidden="true"></i><br>
+                            <p class="login-text">Login</p>
+                        </div>
+                        <div>
+                            <form class="form-group login-form">
+                                <div class="row">
+                                    <input id="loginUsername" name="username" type="text" class="form-control login-input" placeholder="Username">
+                                </div>
+                                <div class="row">
+                                    <input id="loginPassword" name="password" type="password" class="form-control login-input" placeholder="Password">
+                                </div>
+                                <div class="row">    
+                                    <button id="login-btn" class="btn btn-block btn-md">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+<!--                    Login div ends-->
+<!--                    Sign up div-->
+                    <div id="signUp">
+<!--                        Sign up text div-->
+                        <div id="signUp1" class="container">
+                            <p class="signup-logo-text">SignUp</p>
+                            <div id="signUpDiv" class="container-fluid">
+                                <form class="form-group">
+                                    <div class="row">
+                                        <input name="fullName" type="text" class="form-control" placeholder="Full Name">
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <input name="userName" type="text" class="form-control" placeholder="Username">
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <input name="email" type="text" class="form-control" placeholder="E-mail">
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <input name="phone" type="text" class="form-control" placeholder="Contact">
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <input name="passEnter" type="password" class="form-control" placeholder="Password">
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <input name="passConfirm" type="password" class="form-control" placeholder="Confirm Password">
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <button id="signup-btn" class="btn btn-default btn-md">Sign Up</button>
+                                </form>
+                            </div>
+                        </div>
+<!--                        Sign up text div ends-->
+                    </div>
+<!--                    Sign up div ends-->
+                </div>
+<!--                Parent div ends-->
+            </div>

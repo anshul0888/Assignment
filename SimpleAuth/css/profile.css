@@ -1,0 +1,27 @@
+/*Profie image*/
+.profile-img{
+	background-image: url(../images/user.png);
+	background-size: cover;
+	height: 150px;
+	width: 150px;
+	background-color: rgba(255,255,255,1);
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+}
+/*div border*/
+.div-border{
+	border: 6px solid rgba(255,255,255,1);
+	padding: 8px;
+}
+/*background*/
+.back{
+	background-color: rgba(255,255,255,1);
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+	margin: 0px;
+}
+/*User Name*/
+.userName{
+	font-size: 25px;
+	font-family: "HelveticaNeue", sans-serif;
+	text-align: center;
+	margin: 10px;
+}
